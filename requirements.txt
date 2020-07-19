@@ -1,0 +1,5 @@
+datetime
+Flask
+flask_mysqldb
+flask-jwt-extended
+flask-cors
