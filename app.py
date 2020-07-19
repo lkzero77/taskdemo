@@ -71,30 +71,6 @@ def validate_status(status):
         return True
     return False
 
-# middleware
-# @app.before_request
-# def log_requests():
-#     print('logging')
-#     # logger.debug('A debug message')
-#     # logger.info('An info message')
-#     # logger.warning('Something is not right.')
-#     # logger.error('A Major error has happened.')
-#     # logger.critical('Fatal error. Cannot continue')
-
-# @app.after_request
-# def after_request_func(response):
-#     print("after_request is running!", jsonify(response))
-#     logger.info(jsonify(response))
-#     return response
-
-# @app.teardown_request
-# def teardown_request_func(error=None):
-#     print("teardown_request is running!")
-#     if error:
-#         # Log the error
-#         logger.error(str(error))
-
-
 # Not found
 @app.errorhandler(404) 
 def not_found(e):
@@ -331,6 +307,32 @@ def update_ticket_status(id):
     
     cursor.close()
     return jsonify({"msg": "Update ticket status successfull!"}), 200
+
+
+# middleware
+# @app.before_request
+# def log_requests():
+#     print('logging')
+#     logger.debug('A debug message')
+#     logger.info('An info message')
+#     logger.warning('Something is not right.')
+#     logger.error('A Major error has happened.')
+#     logger.critical('Fatal error. Cannot continue')
+
+# @app.after_request
+# def after_request_func(response):
+#     print("after_request is running!", jsonify(response))
+#     logger.info(jsonify(response))
+#     return response
+
+@app.teardown_request
+def teardown_request_func(error=None):
+    cur_user = get_jwt_identity()
+    if cur_user:
+        logger.warning('User %s are working [%s] %s ', str(cur_user), request.method, request.full_path)
+    if error:
+        # Log the error
+        logger.error(str(error))
 
 if __name__ == '__main__':
 	app.run(debug=True)
