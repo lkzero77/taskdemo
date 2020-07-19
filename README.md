@@ -21,6 +21,17 @@ pip install -r requirements.txt
 
 flask run
 
+# Config database
+app.py
+
+app.config['MYSQL_HOST'] = 'localhost'
+app.config['MYSQL_USER'] = 'root'
+app.config['MYSQL_PASSWORD'] = ''
+app.config['MYSQL_DB'] = 'tasks'
+
+import database: tasks.sql
+
+
 # Login page
 
 admin: admin@admin.com | pass:123456
