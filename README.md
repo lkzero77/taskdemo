@@ -1,13 +1,15 @@
 # Welcome to Task!
 
-This is demo for ticket web application on python (flask framework) and vue frontend
+This is demo for ticket web application on python (flask framework) and vue frontend.
+
+Download: https://github.com/lkzero77/taskdemo/blob/master/Test%20Demo.pptx
 
 # Setup
-git clone git@gitlab.com:sangtm201/c.git
+git clone https://github.com/lkzero77/taskdemo.git
 
-cd micro-blog/flask-app
+cd taskdemo
 
-# install virtualenv on window
+# Install virtualenv on window
 
 python -m venv venv
 
@@ -19,6 +21,7 @@ pip install -r requirements.txt
 
 flask run
 
-#Login page
+# Login page
+
 admin: admin@admin.com | pass:123456
 user: test@test.com | pass:123456
